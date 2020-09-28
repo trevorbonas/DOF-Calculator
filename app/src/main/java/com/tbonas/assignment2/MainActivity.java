@@ -1,5 +1,6 @@
 package com.tbonas.assignment2;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -14,9 +15,12 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
         List<String> lens_list = new ArrayList<String>();
 
         SetupListView();
+        registerListClick();
 
        // SetupAddBtn();
     }
-
 
     private void SetupListView() {
         LensManager lenses = LensManager.getInstance();
@@ -75,7 +79,25 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, lens_list);
         list_view.setAdapter(adapter);
 
+    }
 
+    private void registerListClick() {
+        LensManager lenses = LensManager.getInstance();
+        ListView list_view = (ListView)findViewById(R.id.listlensestxt);
+
+        list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView textView = (TextView) view;
+                String message = "You clicked #" + position +
+                        " which is string: " + textView.getText().toString();
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+
+                Intent intent = CalculateActivity.makeIntent(MainActivity.this,
+                        lenses.at(position));
+                startActivity(intent);
+            }
+        });
     }
 
     /*@Override
