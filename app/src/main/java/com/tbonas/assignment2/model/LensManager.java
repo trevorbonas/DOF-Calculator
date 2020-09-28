@@ -10,6 +10,19 @@ import java.util.List;
 
 public class LensManager implements Iterable<Lens>{
     private List<Lens> lenses = new ArrayList<>();
+    private static LensManager instance;
+
+    private LensManager() {
+        // Private constructor for singleton support
+    }
+
+    // Singleton support
+    public static LensManager getInstance() {
+        if (instance == null) {
+            instance = new LensManager();
+        }
+        return instance;
+    }
 
     public void add(Lens lens) {
         lenses.add(lens);
