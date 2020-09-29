@@ -8,13 +8,13 @@ package com.tbonas.assignment2.model;
  */
 
 public class DOFCalculator {
-    private static final double COC = 0.029;
+    //private static final double COC = 0.029;
 
     // Calculates the hyperfocal distance given a lens and chosen aperture
     // Returns its value in mm as other methods, calc_far and calc_near, do their
     // calculations in mm and need the hyperfocal distance
     // TODO Make calc_hyperfocal return value be in metres and still work with near and far
-    public static double calc_hyperfocal (Lens lens, double aperture) throws IllegalArgumentException {
+    public static double calc_hyperfocal (Lens lens, double aperture, double COC) throws IllegalArgumentException {
         // All exception handling cases with case-specific messages
         if (lens == null) {
             throw new IllegalArgumentException("DOFCalculator.calc_hyperfocal error: lens = null");
@@ -38,7 +38,7 @@ public class DOFCalculator {
     }
     // Calculates the nearest point that will be in focus given the lens, distance, and aperture
     // Returns value in mm
-    public static double calc_near(Lens lens, double distance, double aperture) throws IllegalArgumentException {
+    public static double calc_near(Lens lens, double distance, double aperture, double COC) throws IllegalArgumentException {
         // All exception handling cases with case-specific messages
         if (lens == null) {
             throw new IllegalArgumentException("DOFCalculator.calc_near error: lens = null");
@@ -59,7 +59,7 @@ public class DOFCalculator {
             throw new IllegalArgumentException("DOFCalculator.calc_near error: input aperture < lens max aperture");
         }
 
-        double hyperfocal = calc_hyperfocal(lens, aperture);
+        double hyperfocal = calc_hyperfocal(lens, aperture, COC);
 
         distance = distance * 1000;
 
@@ -70,7 +70,7 @@ public class DOFCalculator {
     }
     // Calculates the farthest point that will be in focus given the lens, distance, and aperture
     // Returns value in mm
-    public static double calc_far(Lens lens, double distance, double aperture) throws IllegalArgumentException {
+    public static double calc_far(Lens lens, double distance, double aperture, double COC) throws IllegalArgumentException {
         // All exception handling cases with case-specific messages
         if (lens == null) {
             throw new IllegalArgumentException("DOFCalculator.calc_far error: lens = null");
@@ -91,7 +91,7 @@ public class DOFCalculator {
             throw new IllegalArgumentException("DOFCalculator.calc_far error: input aperture < lens max aperture");
         }
 
-        double hyperfocal = calc_hyperfocal(lens, aperture);
+        double hyperfocal = calc_hyperfocal(lens, aperture, COC);
         distance = distance * 1000;
 
         if (distance > hyperfocal) {
@@ -105,7 +105,7 @@ public class DOFCalculator {
     // Calculates the distance that will be in focus given the lens, distance, and aperture
     // by subtracting the farthest in-focus point from the nearest in-focus point
     // Returns value in mm
-    public static double dof(Lens lens, double distance, double aperture) {
+    public static double dof(Lens lens, double distance, double aperture, double COC) {
         // All exception handling cases with case-specific messages
         if (lens == null) {
             throw new IllegalArgumentException("DOFCalculator.calc_far error: lens = null");
@@ -126,11 +126,11 @@ public class DOFCalculator {
             throw new IllegalArgumentException("DOFCalculator.calc_far error: input aperture < lens max aperture");
         }
 
-        double far = calc_far(lens, distance, aperture);
+        double far = calc_far(lens, distance, aperture, COC);
         if (far == Double.POSITIVE_INFINITY) {
             return Double.POSITIVE_INFINITY;
         }
-        double near = calc_near(lens, distance, aperture);
+        double near = calc_near(lens, distance, aperture, COC);
 
         return far - near;
     }

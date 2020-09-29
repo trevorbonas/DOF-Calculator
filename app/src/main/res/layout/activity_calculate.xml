@@ -79,7 +79,7 @@
         android:layout_width="160dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:text="@string/circle_of_confusion_mm"
         android:textAlignment="viewEnd"
         android:textSize="14sp"
@@ -114,7 +114,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
-        android:text="RESULT"
+        android:text="Enter all values"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -123,7 +124,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="RESULT"
+        android:text="Enter all values"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/n_focal_result_show" />
 
@@ -132,7 +134,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="RESULT"
+        android:text="Enter all values"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/f_focal_result_show" />
 
@@ -141,7 +144,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="RESULT"
+        android:text="Enter all values"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/dof_result_show" />
 
@@ -150,11 +154,11 @@
         android:layout_width="149dp"
         android:layout_height="20dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:text="@string/distance_to_subject_m"
         android:textAlignment="viewEnd"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coc_in_label" />
 
@@ -162,7 +166,7 @@
         android:id="@+id/selec_aperture_in_label"
         android:layout_width="121dp"
         android:layout_height="22dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:text="@string/selected_aperture"
         android:textAlignment="viewEnd"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -172,34 +176,34 @@
 
     <EditText
         android:id="@+id/coc_in_field"
-        android:layout_width="169dp"
+        android:layout_width="170dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="text"
-        android:text="0.029"
+        android:hint="ex: 0.029"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/details_for_make_label" />
 
     <EditText
         android:id="@+id/distance_in_field"
-        android:layout_width="168dp"
-        android:layout_height="43dp"
+        android:layout_width="170dp"
+        android:layout_height="45dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="ex: 1.5 for 1.5m"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/coc_in_field" />
 
     <EditText
         android:id="@+id/s_aperture_in_field"
-        android:layout_width="166dp"
-        android:layout_height="44dp"
+        android:layout_width="170dp"
+        android:layout_height="45dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="ex: 2.8 for F2.8"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/distance_in_field" />
 
@@ -220,5 +224,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="294dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="352dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="411dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
