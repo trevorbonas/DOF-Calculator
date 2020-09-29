@@ -32,7 +32,7 @@ public class DOFCalculator {
             throw new IllegalArgumentException("DOFCalculator.calc_hyperfocal error: input aperture < lens max aperture");
         }
 
-        double result = ((Math.pow(lens.getFocal_length(), 2) ) / (aperture * COC)) + lens.getFocal_length();
+        double result = ((Math.pow(lens.getFocal_length(), 2) ) / (aperture * COC)) /*+ lens.getFocal_length()*/;
 
         return result;
     }

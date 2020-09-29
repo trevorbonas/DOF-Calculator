@@ -14,4 +14,6 @@
     <string name="circle_of_confusion_mm">Circle of Confusion [mm]</string>
     <string name="distance_to_subject_m">Distance to Subject [m]</string>
     <string name="selected_aperture">Selected Aperture</string>
+    <string name="optional_features_auto_recalculate">Optional Features: Auto-recalculate</string>
+    <string name="save">SAVE</string>
 </resources>

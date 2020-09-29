@@ -8,25 +8,41 @@
 
     <ListView
         android:id="@+id/listlensestxt"
-        android:layout_width="382dp"
-        android:layout_height="657dp"
+        android:layout_width="372dp"
+        android:layout_height="604dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:clickable="false"
         android:contextClickable="true"
-        android:listSelector="#d3d3d3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
 
     <TextView
         android:id="@+id/choosetitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/choose_a_lens_to_test"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/listlensestxt"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/additional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Optional Features:\n1. Auto-recalculate\n2. Error Checking Inputs"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listlensestxt"
+        app:layout_constraintVertical_bias="0.555" />
 </androidx.constraintlayout.widget.ConstraintLayout>
