@@ -18,4 +18,5 @@
     <string name="save">SAVE</string>
     <string name="optional_features_n1_auto_recalculate_n2_error_checking_inputs">Optional Features:\n1. Auto-recalculate\n2. Error Checking Inputs</string>
     <string name="select_a_lens_to_use">Select a lens to use</string>
+    <string name="optional_tag">Optional Features:\n3. Error Checking Inputs\n4. Auto-recalculate</string>
 </resources>
