@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="84dp"
         android:text="@string/near_focal_distance"
         android:textAlignment="viewEnd"
         android:textSize="14sp"
@@ -113,7 +113,7 @@
         android:id="@+id/n_focal_result_show"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="84dp"
         android:text="RESULT"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -176,15 +176,15 @@
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="ex: 0.029"
         android:inputType="text"
+        android:text="0.029"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/details_for_make_label" />
 
     <EditText
         android:id="@+id/distance_in_field"
-        android:layout_width="166dp"
-        android:layout_height="44dp"
+        android:layout_width="168dp"
+        android:layout_height="43dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="ex: 1.5 for 1.5m"
@@ -194,8 +194,8 @@
 
     <EditText
         android:id="@+id/s_aperture_in_field"
-        android:layout_width="172dp"
-        android:layout_height="45dp"
+        android:layout_width="166dp"
+        android:layout_height="44dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="ex: 2.8 for F2.8"
@@ -208,6 +208,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="177dp" />
+        app:layout_constraintGuide_begin="209dp" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,24 +38,26 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, AddLensActivity.class);
+                startActivity(intent);
             }
         });
 
         LensManager lenses = LensManager.getInstance();
 
-        // Default lenses
-        lenses.add(new Lens("Canon", 1.8, 50));
-        lenses.add(new Lens("Tamron", 2.8, 90));
-        lenses.add(new Lens("Sigma", 2.8, 200));
-        lenses.add(new Lens("Nikon", 4, 200));
-        lenses.add(new Lens("El Cheepo", 12, 24));
-        lenses.add(new Lens("Leica", 5.6, 1600));
-        lenses.add(new Lens("The Wide", 1.0, 16));
-        lenses.add(new Lens("I Wish", 1.0, 200));
-
-        List<String> lens_list = new ArrayList<String>();
+        // If there's nothing in the LensManager
+        // populate it with the default lenses
+        if (lenses.at(0) == null) {
+            // Default lenses
+            lenses.add(new Lens("Canon", 1.8, 50));
+            lenses.add(new Lens("Tamron", 2.8, 90));
+            lenses.add(new Lens("Sigma", 2.8, 200));
+            lenses.add(new Lens("Nikon", 4, 200));
+            lenses.add(new Lens("El Cheepo", 12, 24));
+            lenses.add(new Lens("Leica", 5.6, 1600));
+            lenses.add(new Lens("The Wide", 1.0, 16));
+            lenses.add(new Lens("I Wish", 1.0, 200));
+        }
 
         SetupListView();
         registerListClick();
@@ -89,10 +91,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView textView = (TextView) view;
-                String message = "You clicked #" + position +
-                        " which is string: " + textView.getText().toString();
-                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
-
                 Intent intent = CalculateActivity.makeIntent(MainActivity.this,
                         lenses.at(position));
                 startActivity(intent);
@@ -120,9 +118,6 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
