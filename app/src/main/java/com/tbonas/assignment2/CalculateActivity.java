@@ -98,7 +98,7 @@ public class CalculateActivity extends AppCompatActivity {
             dof_out.setText("Invalid aperture");
             hyperfocal_out.setText("Invalid aperture");
         }
-        else if (distance_in < 0) {
+        else if (distance_in <= 0) {
             n_focal_out.setText("Invalid distance");
             f_focal_out.setText("Invalid distance");
             dof_out.setText("Invalid distance");
