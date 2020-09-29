@@ -18,6 +18,9 @@ import com.tbonas.assignment2.model.Lens;
 
 import java.text.DecimalFormat;
 
+/**
+ * Calculate the depth of field according to user input
+ */
 public class CalculateActivity extends AppCompatActivity {
     private static final String MAKE_EXTRA =
             "com.tbonas.assignment2.CalculateActivity - Lens make";
@@ -53,24 +56,35 @@ public class CalculateActivity extends AppCompatActivity {
         setupInput();
     }
 
+    // A handy provided function for rounding a double two
+    // two decimal places
     private String formatM(double distanceInM) {
         DecimalFormat df = new DecimalFormat("0.00");
         return df.format(distanceInM);
     }
 
+    // Does the actual depth of field calculations by drawing
+    // from the input of the user and from the Intent
+    // passed upon selection of a lens on the main screen
     private void calculate() {
+        // All display fields
         TextView n_focal_out = findViewById(R.id.n_focal_result_show);
         TextView f_focal_out = findViewById(R.id.f_focal_result_show);
         TextView dof_out = findViewById(R.id.dof_result_show);
         TextView hyperfocal_out = findViewById(R.id.hyper_result_show);
 
+        // The final calculated values
         double n_focal;
         double f_focal;
         double dof;
         double hyperfocal;
 
+        // Using our data from the passed
+        // Intent we make a lens to use in the calculations
         Lens lens = new Lens(make, max_aperture, focal);
 
+        // Checks for valid input
+        // If incorrect format displays a message in the relevant display fields
         if (coc_in <= 0) {
             n_focal_out.setText("Invalid COC");
             f_focal_out.setText("Invalid COC");
@@ -91,6 +105,7 @@ public class CalculateActivity extends AppCompatActivity {
             hyperfocal_out.setText("Invalid aperture");
         }
         else {
+            // All checks made, all input good, producing calculation results
             n_focal = DOFCalculator.calc_near(lens, distance_in, aperture_in, coc_in);
             f_focal = DOFCalculator.calc_far(lens, distance_in, aperture_in, coc_in);
             dof = DOFCalculator.dof(lens, distance_in, aperture_in, coc_in);
@@ -124,6 +139,8 @@ public class CalculateActivity extends AppCompatActivity {
 
     }
 
+    // Sets up the EditText fields for the user input data
+    // Allows auto-recalculation by using a TextWatcher
     private void setupInput() {
         EditText edit_coc = (EditText)findViewById(R.id.coc_in_field);
         edit_coc.addTextChangedListener(new TextWatcher() {
@@ -201,6 +218,8 @@ public class CalculateActivity extends AppCompatActivity {
 
     }
 
+    // This updates the lens display label, i.e., the title that
+    // tells the user which lens they're doing calculations with
     private void updateMakeLabel() {
         TextView label = (TextView)findViewById(R.id.details_for_make_label);
         String label_default = label.getText().toString();
@@ -209,6 +228,7 @@ public class CalculateActivity extends AppCompatActivity {
         label.setText(label_default);
     }
 
+    // Takes data from the passed Intent and stores it
     private void extractDataFromIntent() {
         Intent intent = getIntent();
         make = intent.getStringExtra(MAKE_EXTRA);
@@ -216,6 +236,7 @@ public class CalculateActivity extends AppCompatActivity {
         max_aperture = intent.getDoubleExtra(APERTURE_EXTRA, 0.00);
     }
 
+    // Catches the Intent data
     public static Intent makeIntent(Context context, Lens lens) {
         Intent intent = new Intent(context, CalculateActivity.class);
         intent.putExtra(MAKE_EXTRA,

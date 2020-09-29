@@ -16,9 +16,15 @@ import android.widget.Toast;
 import com.tbonas.assignment2.model.Lens;
 import com.tbonas.assignment2.model.LensManager;
 
+/**
+ * Add lens defined by user-input
+ */
 public class AddLensActivity extends AppCompatActivity {
+    // Message to be output to user when trying to save their lens
+    // Could be error or could be an acceptance message
     String message;
 
+    // The user-input data
     String make_in;
     int focal_in;
     double aperture_in;
@@ -43,6 +49,10 @@ public class AddLensActivity extends AppCompatActivity {
         return true;
     }
 
+    // In the AppBar when the user selects SAVE this will check
+    // if input values are valid and output an error Toast and won't let the user save the
+    // lens, otherwise it creates a lens and adds it to the singleton LensManager
+    // and outputs an acceptance message
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()) {

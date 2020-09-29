@@ -16,4 +16,6 @@
     <string name="selected_aperture">Selected Aperture</string>
     <string name="optional_features_auto_recalculate">Optional Features: Auto-recalculate</string>
     <string name="save">SAVE</string>
+    <string name="optional_features_n1_auto_recalculate_n2_error_checking_inputs">Optional Features:\n1. Auto-recalculate\n2. Error Checking Inputs</string>
+    <string name="select_a_lens_to_use">Select a lens to use</string>
 </resources>

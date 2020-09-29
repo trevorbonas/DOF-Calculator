@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // An instance of our singleton LensManager
         LensManager lenses = LensManager.getInstance();
 
         // If there's nothing in the LensManager
@@ -61,10 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
         SetupListView();
         registerListClick();
-
-       // SetupAddBtn();
     }
 
+    // Show lenses on the ListView
     private void SetupListView() {
         LensManager lenses = LensManager.getInstance();
         List<String> lens_list = new ArrayList<String>();
@@ -83,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Allow the user to click on the list of lenses and then pass that specific lens's
+    // data into the calculation activity
     private void registerListClick() {
         LensManager lenses = LensManager.getInstance();
         ListView list_view = (ListView)findViewById(R.id.listlensestxt);
@@ -97,11 +99,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    /*@Override
-    private void SetupAddBtn() {
-        Button btn = new
-    } */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
